@@ -58,3 +58,4 @@ The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstra
 ### My Web Performace Fixes:
 * Optimized images.
 * Minified, inline style.css. Separated portrait and print styles.
+* Removed fonts.

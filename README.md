@@ -60,3 +60,4 @@ The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstra
 * Minified, inlined style.css. Separated portrait and print styles.
 * Removed fonts.
 * Fixed problem with google analytics by adding async
+* Changed the changePizzaSizes() function. It resizes pizza in under 1ms.

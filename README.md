@@ -69,4 +69,4 @@ For Scrolling Time:
 For FPS:
 * Reduced number of pizzas to 30. in the 'document.addEventListener('DOMContentLoaded', function()'
 * changes .mover in main.js, added declarations: backface-visibility: hidden; and -webkit-backface-visibility: hidden;
-*
+* changes in updatePositions functions: I have put the calculations outside the loop.

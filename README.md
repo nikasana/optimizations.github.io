@@ -67,7 +67,6 @@ For Scrolling Time:
 * Changed the changePizzaSizes() function. It resizes pizza in under 1ms.
 
 For FPS:
-*
-*
-*
+* Reduced number of pizzas to 30. in the 'document.addEventListener('DOMContentLoaded', function()'
+* changes .mover in main.js, added declarations: backface-visibility: hidden; and transform: rotate(0deg);
 *

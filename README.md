@@ -57,16 +57,16 @@ The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstra
 
 ### My Web Performace Fixes:
 
-- For PageSpeed:
+_ For PageSpeed: _
 * Optimized images.
 * Minified, inlined style.css. Separated portrait and print styles.
 * Removed fonts.
 * Fixed problem with google analytics by adding async
 
-- For Scrolling Time:
+_ For Scrolling Time: _
 * Changed the changePizzaSizes() function. It resizes pizza in under 1ms.
 
-- For FPS:
+_ For FPS: _
 *
 *
 *

@@ -1,0 +1,55 @@
+/* Setting global font style */
+* {
+    font-family: "Roboto", sans-serif;
+}
+
+/* adding styles to the searchbox */
+#navigations {
+    background-color: black;
+}
+
+.search {
+    padding: 15px 0px;
+}
+
+input {
+    width: 100%; 
+    border-radius: 0px 15px 15px 0px;
+    font-size: 24px;
+    }
+
+/* adding styles to list elements */
+.single-place {
+    list-style: none;
+    padding: 15px 0px 2px 5px;
+    text-align: left;
+    border-bottom: 1px solid #b30036;
+    color: #ff4d82;
+    font-size: 16px;
+}
+
+/* making the list element change its color when mouse is over it*/
+.single-place:hover {
+    border-bottom: 3px solid DarkOrchid;
+    background-color: #b30036;
+    color: black;
+    cursor: pointer;
+}
+
+/* additional classes for some fixes to the box model */
+.full-height{
+    height: 100vh;
+}
+
+.padding-0  {
+    padding: 0;
+}
+
+.padding-5{
+    padding: 5px;
+}
+
+ul {
+    overflow: auto;
+    max-height: 65vh;
+}

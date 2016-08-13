@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+
+<div id="prog"  align="center">
+	<div id="head" align="center">
+		SORTING FUNCTIONS
+	</div>
+	<div id="calculator"  valign="top">
+	<br>
+		<div id="scroll"  align="center">
+			<p class="line">
+				<span class="LE LH1">Size</span>
+				<input class="MI LH1" type="range" oninput="mySize()" onchange="mySize()" id="mySizeRange" value="25" min="2" max="100" step="1">
+				<span class="RI LH1" id="size">25</span>
+			</p>
+			<hr>
+			<p class="line"> 
+				<span class="LE">Range</span>
+				<input class="MI" type="range" oninput="myRange()" onchange="myRange()" id="myRangeRange" value="20" min="1" max="500" step="1">
+				<span class="RI" id="range">20</span>
+			</p>
+			<div>
+				<button id="gen" type="button" class="button" onclick="setNums()">Generate</button>
+			</div>
+		</div>
+		<div id="functions">
+			<button id="ins" type="button" class="button2 big" onclick="sortInsert()" disabled="true"  >Insertion Sort</button>
+		</div>
+		<div id="display">
+			<div id="demo"></div>
+		</div>
+		<div id="saved">
+			<div id="slider" class="line">
+				<button class="button2 LE2" id="down" type="button" onclick="down()" disabled="true">◄</button>
+				<span id="sld" class="MI2"> 0/0 </span>
+				<button class="button2 RI2" id="up" type="button" onclick="up()" disabled="true">►</button>
+			</div>
+			<button class="button" id="ani" type="button" onclick="anim()" disabled="true">Animate</button>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+var ar = [];
+var matrix = [];
+var step;
+var oMin = 1;
+var oMax = 20;
+var oSize = 25;
+var arMin, arMax;
+var oH = 330;
+var oLeft = 30;
+var oW = 690;
+var slide = 1;
+var slides = 1;
+var oR= [];
+var oY= [];
+var oO= [];
+var oB= [];
+var oN= [];
+var disColor = "#E3F2FD";
+var col01 = "#536DFE";
+var col02 = "#536DFE";
+var screenW;
+
+
+screenW =Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+if(screenW-44<690){
+	oW=screenW-44;
+}
+
+
+//defaults:
+
+document.getElementById("ani").style.backgroundColor=disColor;
+document.getElementById("down").style.backgroundColor=disColor;
+document.getElementById("up").style.backgroundColor=disColor;
+document.getElementById("ins").style.backgroundColor=disColor;
+
+//******************************************************
+//                called out functions:
+//******************************************************
+
+// function displayM(){
+// 	for(var i=0; i<matrix.length; i++){
+// 	console.log("step "+i+":");
+// 	console.log(matrix[i]);
+// 	display(matrix[i]);
+// 	}
+// }
+
+function mySize(){
+	var x = document.getElementById("mySizeRange").value;
+    document.getElementById("size").innerHTML = x;
+}
+function myRange(){
+	var x = document.getElementById("myRangeRange").value;
+    document.getElementById("range").innerHTML = x;
+}
+
+function anim(){
+		document.getElementById("ani").disabled=true;
+		document.getElementById("ani").style.backgroundColor=disColor;
+		document.getElementById("up").disabled=true;
+		document.getElementById("up").style.backgroundColor=disColor;
+		document.getElementById("down").disabled=true;
+		document.getElementById("down").style.backgroundColor=disColor;
+		document.getElementById("gen").disabled=true;
+		document.getElementById("gen").style.backgroundColor=disColor;
+	    slide=0;
+	    animAct();
+}
+function down(){
+	slide-=1;
+	showSlide();
+	display(matrix[slide-1]);
+	if(slide==1){
+		document.getElementById("down").disabled=true;
+		document.getElementById("down").style.backgroundColor=disColor;
+	}
+	document.getElementById("up").disabled=false;
+	document.getElementById("up").style.backgroundColor=col02;
+}
+function up(){
+	slide+=1;
+	showSlide();
+	display(matrix[slide-1]);
+	if(slide==slides){
+		document.getElementById("up").disabled=true;
+		document.getElementById("up").style.backgroundColor=disColor;
+	}
+	document.getElementById("down").disabled=false;
+	document.getElementById("down").style.backgroundColor=col02;
+}
+
+function sortInsert(){
+	document.getElementById("ins").disabled=true;
+	document.getElementById("ins").style.backgroundColor=disColor;
+	document.getElementById("up").disabled=true;
+	document.getElementById("up").style.backgroundColor=disColor;
+	document.getElementById("down").disabled=false;
+	document.getElementById("down").style.backgroundColor=col02;
+	document.getElementById("ani").disabled=false;
+	document.getElementById("ani").style.backgroundColor=col01;
+
+	step = 0;
+	var done;
+	for(var i = 0; i < ar.length; i++) {
+		done=0;
+    	var tmp = ar[i]; 
+    	for(var j = i - 1; j >= 0 && (ar[j] > tmp); j--) {
+      		ar[j+1] = ar[j];
+      		step++;
+      		done=1;
+    	}
+   		ar[j+1] = tmp;
+   		if(done){
+   			matrix[matrix.length]=[];
+   			for(var k=0;k<ar.length;k++){
+   				matrix[matrix.length-1][k]=ar[k];
+   			}
+   			oR[matrix.length-1]=j+1;
+   			oY[matrix.length-1]=i;
+   			oB[matrix.length-1]=j+1+1;
+   			oN[matrix.length-1]=i-1;
+   		}
+  	}
+	display(ar);
+	slides = matrix.length;
+	slide = slides;
+	showSlide();
+	anim();
+}
+function setNums() {
+	document.getElementById("ins").disabled=false;
+	document.getElementById("ins").style.backgroundColor=col02;
+	document.getElementById("up").disabled=true;
+	document.getElementById("up").style.backgroundColor=disColor;
+	document.getElementById("down").disabled=true;
+	document.getElementById("down").style.backgroundColor=disColor;
+	document.getElementById("ani").disabled=true;
+	document.getElementById("ani").style.backgroundColor=disColor;
+	document.getElementById("sld").innerHTML="0/0";
+	clearF();
+    document.getElementById("demo").innerHTML = getNums(getMin(),getMax(),getSize());
+}
+setNums();
+
+//******************************************************
+//                flexable functions:
+//******************************************************
+
+
+function clearF(){
+	step = 0;
+	matrix = [];
+	slide = 0;
+	slides = 0;
+	var oR= [];
+	var oY= [];
+	var oO= [];
+	var oB= [];
+	var oN= [];
+}
+//actively display slides:
+function animAct(){
+		if(document.getElementById("sld").innerHTML != "0/0"){
+			slide += 1;
+			showSlide();
+			display(matrix[slide-1]);
+			if(slide<slides){
+				setTimeout(animAct, 50);
+			}
+			else{
+				document.getElementById("ani").disabled=false;
+				document.getElementById("ani").style.backgroundColor=col01;
+				document.getElementById("up").disabled=true;
+				document.getElementById("up").style.backgroundColor=disColor;
+				document.getElementById("down").disabled=false;
+				document.getElementById("down").style.backgroundColor=col02;
+				document.getElementById("gen").disabled=false;
+				document.getElementById("gen").style.backgroundColor=col01;
+			}
+		}
+}
+
+//display slide
+function showSlide(){
+	document.getElementById("sld").innerHTML = slide + "/" + slides;
+}
+
+//getting the new array
+function getNums(min,max,size){
+	ar = [];
+	for (i = 0; i < size; i++) {	
+		ar[i]=getRandomInt(min,max);
+	}
+	setMM();
+	return getStr(ar);
+}
+
+
+//displaying arr
+function display(arr){
+	//console.log("displayed");
+	document.getElementById("demo").innerHTML = getStr(arr);
+}
+
+//******************************************************
+//              INF getters/generators
+//******************************************************
+
+//geting critical arr values
+function setMM(){
+	var sMin, sMax;
+	sMin = ar[0];
+	sMax = ar[0];
+	
+	for(var i=0;i<=ar.length;i++){
+		if(sMin > ar[i]){
+			sMin = ar[i];
+		}
+		if(sMax < ar[i]){
+			sMax = ar[i];
+		}
+	}
+//console.log(sMin);console.log(sMax);
+	arMin = sMin;
+	arMax = sMax;
+}
+
+//Converting arr to string
+function getStr(arr){
+	var str = "",sW="",sNum="",pix,mark="",pixH,sH="2",inner=330;
+	for (i = 0; i < arr.length; i++){
+		if(str) {
+			str += " ";
+		}
+		//set width
+		pix = oLeft + Math.floor(oW*((arr[i]-arMin)/arMax));
+		sW = pix.toString();
+
+		//set height
+		pixH = Math.floor((oH/arr.length)-2);
+		sH = pixH.toString();
+		
+
+
+		//set color
+		mark = " grey";
+		if(oR[slide]==i && slide!=slides){
+			mark = " red";
+		}
+		if(oY[slide]==i && slide!=slides){
+			mark = " yellow";
+		}
+		if(oO[slide]==i && slide!=slides){
+			mark = " orange";
+		}
+		if(slide!=slides && oB[slide]<=i && oN[slide]>=i){
+			mark = " between";
+		}
+		//if(arr[i]==arMin){
+			//mark = " blue";
+		//}
+		//if(arr[i]==arMax){
+			//mark = " red";
+		//}
+		//sNum = arr[i].toString();
+		str += "<div  class='num"+ mark +"' style='max-width:"+ sW +"px; min-height:" + sH + "px;'>" + sNum + "</div>";
+	}
+	//calc the demos H
+	inner=2+(2+pixH)*arr.length;
+	inner=inner-inner%2;
+	
+	if(inner<330){
+		console.log("2+(2+"+pixH+")*"+arr.length+"="+inner);
+		document.getElementById("demo").style.height=inner;
+		var t=(330-inner)/2;
+		console.log(t);
+		document.getElementById("demo").style.padding=t.toString() + "px 0px";
+	}
+	else{
+		console.log("failed!");
+		console.log("2+(2+"+pixH+")*"+arr.length+"="+inner);
+		document.getElementById("demo").style.padding="0px 0px";
+	}
+	return str;
+}
+//Getting inf about Size Min and Max
+function getSize(){
+	var size = parseInt(document.getElementById("size").innerHTML,10);
+	return size;
+}
+function getMin(){
+	var min = parseInt("1",10);
+	return min;
+}
+function getMax(){
+	var max = parseInt(document.getElementById("range").innerHTML,10);
+	return max;
+}
+//random int generator
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+</script>
+
+</body>
+</html>
+

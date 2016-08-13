@@ -7,28 +7,34 @@
 
 <div id="prog"  align="center">
 	<div id="head" align="center">
-		SORTING FUNCTIONS
+		SORTING ALGORITHMS
 	</div>
 	<div id="calculator"  valign="top">
 	<br>
 		<div id="scroll"  align="center">
 			<p class="line">
-				<span class="LE LH1">Size</span>
+				<span class="LE LH1">Size</span><span class="RI LH1" id="size">25</span>
 				<input class="MI LH1" type="range" oninput="mySize()" onchange="mySize()" id="mySizeRange" value="25" min="2" max="100" step="1">
-				<span class="RI LH1" id="size">25</span>
+				
 			</p>
 			<hr>
 			<p class="line"> 
-				<span class="LE">Range</span>
+				<span class="LE">Range</span><span class="RI" id="range">20</span>
 				<input class="MI" type="range" oninput="myRange()" onchange="myRange()" id="myRangeRange" value="20" min="1" max="500" step="1">
-				<span class="RI" id="range">20</span>
+				
 			</p>
 			<div>
 				<button id="gen" type="button" class="button" onclick="setNums()">Generate</button>
 			</div>
 		</div>
 		<div id="functions">
+
 			<button id="ins" type="button" class="button2 big" onclick="sortInsert()" disabled="true"  >Insertion Sort</button>
+			
+			<button id="bub" type="button" class="button2 big" onclick="sortBubble()"   >Bubble Sort</button>
+
+			<button id="sel" type="button" class="button2 big" onclick="sortSelection()"   >Selection Sort</button>
+			
 		</div>
 		<div id="display">
 			<div id="demo"></div>
@@ -73,6 +79,7 @@ var oY= [];
 var oO= [];
 var oB= [];
 var oN= [];
+var oX= [];
 var disColor = "#E3F2FD";
 var col01 = "#536DFE";
 var col02 = "#536DFE";
@@ -91,6 +98,20 @@ document.getElementById("ani").style.backgroundColor=disColor;
 document.getElementById("down").style.backgroundColor=disColor;
 document.getElementById("up").style.backgroundColor=disColor;
 document.getElementById("ins").style.backgroundColor=disColor;
+document.getElementById("bub").style.backgroundColor=disColor;
+document.getElementById("sel").style.backgroundColor=disColor;
+
+
+var mq = window.matchMedia( "(min-width: 650px)" );
+if (mq.matches) {
+  // window width is at least 650px
+  document.getElementById("head").style.fontSize="36px";
+  document.getElementById("head").style.height="32px";
+} else {
+  // window width is less than 650px
+  document.getElementById("head").style.fontSize="20px";
+  document.getElementById("head").style.height="18px";
+}
 
 //******************************************************
 //                called out functions:
@@ -149,17 +170,8 @@ function up(){
 }
 
 function sortInsert(){
-	document.getElementById("ins").disabled=true;
-	document.getElementById("ins").style.backgroundColor=disColor;
-	document.getElementById("up").disabled=true;
-	document.getElementById("up").style.backgroundColor=disColor;
-	document.getElementById("down").disabled=false;
-	document.getElementById("down").style.backgroundColor=col02;
-	document.getElementById("ani").disabled=false;
-	document.getElementById("ani").style.backgroundColor=col01;
+	sta();
 
-	step = 0;
-	var done;
 	for(var i = 0; i < ar.length; i++) {
 		done=0;
     	var tmp = ar[i]; 
@@ -174,21 +186,121 @@ function sortInsert(){
    			for(var k=0;k<ar.length;k++){
    				matrix[matrix.length-1][k]=ar[k];
    			}
-   			oR[matrix.length-1]=j+1;
+   			oX[matrix.length-1]=j+1;
    			oY[matrix.length-1]=i;
    			oB[matrix.length-1]=j+1+1;
    			oN[matrix.length-1]=i-1;
    		}
   	}
+
+	fin();
+}
+function sortBubble(){
+	var done;
+	sta();
+
+ 	var stop;
+    for (var i=0; i < ar.length; i++){
+    	done=0;
+        for (var j=0, stop=ar.length-i; j < stop; j++){
+            if (ar[j] > ar[j+1]){
+                swap(ar, j, j+1);
+                step++;
+                done=1;
+            }
+            if(done){
+   				matrix[matrix.length]=[];
+   				for(var k=0;k<ar.length;k++){
+   					matrix[matrix.length-1][k]=ar[k];
+   				}
+   				oR[matrix.length-1]=j;
+   				oY[matrix.length-1]=j+1;
+   			}
+        }
+    }
+
+	fin();
+}
+
+function sortSelection(){
+	var done;
+	sta();
+
+ 	var minIdx, temp, 
+      len = ar.length;
+
+  	for(var i = 0; i < len; i++){
+  		done=0;
+    	minIdx = i;
+    	for(var  j = i+1; j<len; j++){
+    	   if(ar[j]<ar[minIdx]){
+    	      minIdx = j;
+    	      done=1;
+    	      step++;
+    	   }
+    	}
+    	temp = ar[i];
+    	ar[i] = ar[minIdx];
+    	ar[minIdx] = temp;
+    	if(done){
+   			matrix[matrix.length]=[];
+   			for(var k=0;k<ar.length;k++){
+   				matrix[matrix.length-1][k]=ar[k];
+   			}
+   			oR[matrix.length-1]=i;
+   			oY[matrix.length-1]=minIdx;
+   		}
+ 	}
+
+	fin();
+}
+
+function fin(){
 	display(ar);
 	slides = matrix.length;
 	slide = slides;
 	showSlide();
 	anim();
 }
+function sta(){
+	oR= [];
+	oY= [];
+	oO= [];	
+	oB= [];
+	oN= [];
+	oX= [];
+	document.getElementById("ins").disabled=true;
+	document.getElementById("ins").style.backgroundColor=disColor;
+	document.getElementById("bub").disabled=true;
+	document.getElementById("bub").style.backgroundColor=disColor;
+	document.getElementById("sel").disabled=true;
+	document.getElementById("sel").style.backgroundColor=disColor;
+	//*****STANDARTS
+	document.getElementById("up").disabled=true;
+	document.getElementById("up").style.backgroundColor=disColor;
+	document.getElementById("down").disabled=false;
+	document.getElementById("down").style.backgroundColor=col02;
+	document.getElementById("ani").disabled=false;
+	document.getElementById("ani").style.backgroundColor=col01;
+	step = 0;
+	
+	if(document.getElementById("sld").innerHTML != "0/0"){
+		for(var k=0;k<ar.length;k++){
+   			ar[k]=matrix[0][k];
+   		}
+   		//console.log("M*****************"+matrix[0]);
+   		matrix=[];
+   	}
+	//console.log("bubbling!");
+}
+
 function setNums() {
 	document.getElementById("ins").disabled=false;
 	document.getElementById("ins").style.backgroundColor=col02;
+	document.getElementById("bub").disabled=false;
+	document.getElementById("bub").style.backgroundColor=col02;
+	document.getElementById("sel").disabled=false;
+	document.getElementById("sel").style.backgroundColor=col02;
 	document.getElementById("up").disabled=true;
 	document.getElementById("up").style.backgroundColor=disColor;
 	document.getElementById("down").disabled=true;
@@ -216,6 +328,16 @@ function clearF(){
 	var oO= [];
 	var oB= [];
 	var oN= [];
+	var oX= [];
+}
+function clearS(){
+	var oR= [];
+	var oY= [];
+	var oO= [];
+	var oB= [];
+	var oN= [];
+	var oX= [];
+	//nothing here
 }
 //actively display slides:
 function animAct(){
@@ -224,7 +346,7 @@ function animAct(){
 			showSlide();
 			display(matrix[slide-1]);
 			if(slide<slides){
-				setTimeout(animAct, 50);
+				setTimeout(animAct, 3500/slides);
 			}
 			else{
 				document.getElementById("ani").disabled=false;
@@ -236,6 +358,15 @@ function animAct(){
 				document.getElementById("gen").disabled=false;
 				document.getElementById("gen").style.backgroundColor=col01;
 			}
+			
+		}
+		if(slide==slides){
+			document.getElementById("ins").disabled=false;
+			document.getElementById("ins").style.backgroundColor=col02;
+			document.getElementById("bub").disabled=false;
+			document.getElementById("bub").style.backgroundColor=col02;
+			document.getElementById("sel").disabled=false;
+			document.getElementById("sel").style.backgroundColor=col02;
 		}
 }
 
@@ -259,6 +390,13 @@ function getNums(min,max,size){
 function display(arr){
 	//console.log("displayed");
 	document.getElementById("demo").innerHTML = getStr(arr);
+}
+
+//swap items
+function swap(items, firstIndex, secondIndex){
+    var temp = items[firstIndex];
+    items[firstIndex] = items[secondIndex];
+    items[secondIndex] = temp;
 }
 
 //******************************************************
@@ -312,6 +450,9 @@ function getStr(arr){
 		if(oO[slide]==i && slide!=slides){
 			mark = " orange";
 		}
+		if(oX[slide]==i && slide!=slides){
+			mark = " xray";
+		}
 		if(slide!=slides && oB[slide]<=i && oN[slide]>=i){
 			mark = " between";
 		}
@@ -329,10 +470,10 @@ function getStr(arr){
 	inner=inner-inner%2;
 	
 	if(inner<330){
-		console.log("2+(2+"+pixH+")*"+arr.length+"="+inner);
+		//console.log("2+(2+"+pixH+")*"+arr.length+"="+inner);
 		document.getElementById("demo").style.height=inner;
 		var t=(330-inner)/2;
-		console.log(t);
+		//console.log(t);
 		document.getElementById("demo").style.padding=t.toString() + "px 0px";
 	}
 	else{
@@ -363,4 +504,5 @@ function getRandomInt(min, max) {
 
 </body>
 </html>
+
 

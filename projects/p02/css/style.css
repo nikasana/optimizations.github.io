@@ -93,6 +93,12 @@ span{
 .between{
 	background-color: #C62828;
 }
+.xray{
+   border-top: solid 3px #FFEB3B;
+   margin-top: 1px;
+   border-radius: 0px;
+   background-color: black;
+}
 
 #calculator{
 	max-width: 960px;
@@ -101,7 +107,7 @@ span{
 }
 #saved{
 	background-color: #F0F5F7;
-	width: 150px;
+	width: 200px;
 	padding:0;
 	border-radius: 3px 3px 10px 10px;
 }
@@ -140,6 +146,8 @@ span{
 }
 #head{
    font-size:36px; 
+   color: #263238;
+   max-height: 32px;
 }
 
 
@@ -167,6 +175,7 @@ span{
    }
 
    .button2 {
+      margin:3px;
    border: 1px solid #536DFE;
    background: #536DFE;
    -webkit-border-radius: 3px;
@@ -190,4 +199,49 @@ span{
    }
 .big{
    height:50px;
+}
+
+
+
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 30px 0 5px 0;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 4.4px;
+  cursor: pointer;
+  background: #1155a9;
+  border-radius: 25px;
+  border: 0.2px solid rgba(0, 1, 1, 0.18);
+}
+input[type=range]::-webkit-slider-thumb {
+  border: 0.1px solid #000000;
+  height: 17px;
+  width: 13px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.61);
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -6.5px;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 4.4px;
+  cursor: pointer;
+  background: #1155a9;
+  border-radius: 25px;
+  border: 0.2px solid rgba(0, 1, 1, 0.18);
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 4.4px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
 }

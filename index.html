@@ -1,36 +1,53 @@
 <?php 
-if(isset($_POST['submit'])){
-    $to = "nikoloz.sanakoevi@gmail.com"; // this is your Email address
-    $from = $_POST['email']; // this is the sender's Email address
-    $first_name = $_POST['first_name'];
-    $last_name = $_POST['last_name'];
-    $subject = "Form submission";
-    $subject2 = "Copy of your form submission";
-    $message = $first_name . " " . $last_name . " wrote the following:" . "\n\n" . $_POST['message'];
-    $message2 = "Here is a copy of your message " . $first_name . "\n\n" . $_POST['message'];
-
-    $headers = "From:" . $from;
-    $headers2 = "From:" . $to;
-    mail($to,$subject,$message,$headers);
-    mail($from,$subject2,$message2,$headers2); // sends a copy of the message to the sender
-    echo "Mail Sent. Thank you " . $first_name . ", we will contact you shortly.";
-    // You can also use header('Location: thank_you.php'); to redirect to another page.
-    }
-?>
-
-<!DOCTYPE html>
-<head>
-<title>Form submission</title>
-</head>
-<body>
-
-<form action="" method="post">
-First Name: <input type="text" name="first_name"><br>
-Last Name: <input type="text" name="last_name"><br>
-Email: <input type="text" name="email"><br>
-Message:<br><textarea rows="5" name="message" cols="30"></textarea><br>
-<input type="submit" name="submit" value="Submit">
-</form>
-
-</body>
-</html> 
+    $error = ''; 
+    if ($_POST['check'] == "yes") { 
+        if (empty($_POST['message'])) { 
+            $error .= 'You must type in a message.'; 
+        } else { 
+            switch ($_POST['type']) { 
+            case 'q': 
+                $subject = 'Question'; 
+                break; 
+            case 's': 
+                $subject = 'Suggestion'; 
+                break; 
+            case 'c': 
+                $subject = 'Comment'; 
+                break; 
+            case 'b': 
+                $subject = 'Bug Report/Typo'; 
+                break; 
+            default: 
+                $subject = 'Message'; 
+            } 
+            $_POST['message'] = str_replace("\\'", "'", $_POST['message']); 
+            $_POST['message'] = str_replace('\\"', '"', $_POST['message']); 
+            $us = '  '; 
+            if (isset($_SESSION['user'])) { $us .= $_SESSION['user']; } else { $user = ''; } 
+            mail("YOUR EMAIL ADDRESS HERE!!!!!", "Subject: " . $subject . $us, $_POST['message'], 'From: ' . $_POST['email']); 
+        } 
+    } 
+     
+    if (empty($error) && $_POST['check'] == 'yes') { 
+        echo '<center><font style="color: #ffffff"><b>Thanks for contacting us.<br />'; 
+        if ($_POST['type'] == 'q') { echo 'We will try to answer your question as soon as possible.'; } 
+        elseif ($_POST['type'] == 's') { echo 'We will consider your suggestion and contact you if we plan to include it.'; } 
+        elseif ($_POST['type'] == 'c') { echo 'We will receive your comment shortly.'; }
+        elseif ($_POST['type'] == 'b') { echo 'We will try to fix this error as soon as possible.'; } 
+        else { echo 'We will receive your message shortly.'; } 
+        echo '</b></center>'; 
+    } else { 
+?> 
+<form name="mailer" action="contact.php" method="post"> 
+<input type="hidden" name="check" value="yes"> 
+<table cellpadding="0" cellspacing="8" border="0" align="center"> 
+<?php if (!empty($error)) { echo '<tr><td colspan="2"><b style="color: #ffffff">' . $error . '</b></td></tr>'; } ?> 
+<tr><td colspan="2" align="center">[ <input type="radio" name="type" value="q" checked="checked"> Question ] [ <input type="radio" name="type" value="s"> Suggestion ] [ <input type="radio" name="type" value="c"> Comment ] [ <input type="radio" name="type" value="b"> Report a bug/typo ] [ <input type="radio" name="type" value="o"> Other ]</td></tr> 
+<tr><td align="center">Your Email*:</td><td> <input type="text" style="background: #262727; border: none; color: white;" name="email" size="64"></td></tr> 
+<tr><td colspan="2" align="center">Message:</td></tr> 
+<tr><td colspan="2" align="center"><textarea style="border: none; background-color: #262727; color: white;" name="message" cols="64" rows="8"></textarea></td></tr> 
+<tr><td colspan="2" align="center"><input type="submit" class="btn" onmousedown="this.className='btn btnclk'" onmouseout="this.className='btn'" value="Send!"></td></tr> 
+</table> 
+<center>*Don't forget to enter your email if you want a reply</center> 
+</form> 
+<?php } ?>

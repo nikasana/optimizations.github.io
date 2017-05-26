@@ -1,7 +1,24 @@
 <!doctype html>
 <html>
-<code src="header.html"></code>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GFA</title>
+    <link href='https://fonts.googleapis.com/css?family=Lato:100,300' rel='stylesheet' type='text/css'>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/styles.css" rel="stylesheet">
+	
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-93484261-4', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
 <body>
+<!-- >Header- need to change it into a link to a file</!-->
 	<div class="container">
 		<header class="row">
 			<div class="col-md-6">
@@ -9,7 +26,12 @@
 	    	</div>
     		<div class="col-md-6 text-right text-uppercase">
     			<h1 class="text-thin">Georgia Future Academy</h1>
-    			<h4>NGO</h4>
+    			<h4>				
+	<a href="index.html">Home Page|</a>
+	<a href="about.html">About Us|</a>
+	<a href="projects.html">Projects|</a>
+	<a href="contact.html">Contacts</a>
+	</h4>
     		</div>
 		</header>
 		<section class="row">
@@ -17,24 +39,24 @@
 				<hr>
 			</div>
 		</section>
-		<section class="row">
-			
+<!-- >SLIDESHOW</!-->		
+		<section class="row">			
 				<div class="slideshow-container">
   <div class="mySlides fade">
     <div class="numbertext">1 / 3</div>
-    <img src="img/logo.png" style="width:100%">
-    <div class="text">Caption Text</div>
+    <img src="img/project_1.jpg" style="width:100%">
+    <div class="text">არტ-თერაპია: როგორ კურნავს ხელოვნება ადამიანს?</div>
   </div>
 
   <div class="mySlides fade">
-    <div class="numbertext">2 / 3</div>
-    <img src="img/logo2.jpg" style="width:100%">
+    <div class="numbertext"></div>
+    <img src="img/project_2.jpg" style="width:100%">
     <div class="text">Caption Two</div>
   </div>
 
   <div class="mySlides fade">
     <div class="numbertext">3 / 3</div>
-    <img src="img/GFA.png" style="width:100%">
+    <img src="img/project3.png" style="width:100%">
     <div class="text">Caption Three</div>
   </div>
 
@@ -43,6 +65,7 @@
 </div>
 <br>
 
+
 <div style="text-align:center">
   <span class="dot" onclick="currentSlide(1)"></span> 
   <span class="dot" onclick="currentSlide(2)"></span> 
@@ -50,27 +73,36 @@
 </div>
 <script src="js/slideshow.js"></script>			
 		</section>
-		<section class="row">
-			<div class="col-md-12">
-				<h3 class="text-light">My Projects</h3>
-			</div>
-		</section>
-		
-		<section class="row">
-			<div class="col-md-4 add-border tags">
+<!-- >Project Table</!-->		
+		<table>
+  <tr>
+    <th>
+	<div class="col-md-4 add-border tags">
 				<a href="http://paintplatform.com/landing/" target="_blank">
 					<img src="img/work10.png" class="img-responsive project" alt="project 4">
 					<h2 class="text-uppercase"> Charity Website Project </h2>
-					<p> http://paintplatform.com/landing/ </p>
+					
 				</a>
 			</div>
-			<div class="col-md-4 add-border tags">
+	</th> 
+    <th>
+	<div class="col-md-4 add-border tags">
 				<a href="https://nikasana.github.io/projects/p03/" target="_blank">
 					<img src="img/work1.png" class="img-responsive project" alt="project 1">
 					<h2 class="text-uppercase"> Classic Arcade Game Clone </h2>
-					<p> https://nikasana.github.io/projects/p03/ </p>
+					
 				</a>
 			</div>
+	</th>
+  </tr>
+  <tr>
+    <td>January</td>
+    <td>$100</td>
+  </tr>
+</table>
+		<section class="row">
+			
+			
 	
 			
 		</section>
@@ -79,14 +111,14 @@
 				<a href="https://nikasana.github.io/projects/p02/" target="_blank">
 					<img src="img/work3.png" class="img-responsive project" alt="project 3">
 					<h2 class="text-uppercase"> Basic Sorting Algorithm Visualizer </h2>
-					<p> https://nikasana.github.io/projects/p02/ </p>
+					
 				</a>
 			</div>
 						<div class="col-md-4 add-border tags">
 				<a href="https://nikasana.github.io/projects/p01/" target="_blank">
 					<img src="img/work2.png" class="img-responsive project" alt="project 2">
 					<h2 class="text-uppercase"> Neighborhood Map </h2>
-					<p> https://nikasana.github.io/projects/p01/ </p>
+					
 				</a>
 			</div>	
 		</section>

@@ -6,6 +6,10 @@ body {
   background-color: white;	
 }
 
+.mySlides img{
+	width: 960px;
+	height: 480px;
+}
 
 .COLo {
 	color: #e67e22;

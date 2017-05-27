@@ -11,6 +11,18 @@
 	
 </head>
 <body>
+	
+	<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+	
+	
+	
 <!-- >Header- need to change it into a link to a file</!-->
 	<div class="container">
 		<header class="row">
@@ -147,7 +159,7 @@ function showSlides(n) {
 			
 			<footer class="row">
 		<div class="col-md-2 text-left">
-			<h1 class="text-thin text-left COLo">FB links</h1>
+			<div class="fb-like" data-href="https://www.facebook.com/geofutureacademy/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
 		</div>
 		<div class="col-md-8 text-center">
 			<h5 class="text-thin text-center text-bottom">Copyright © 2017 Georgia Future Academy. All Rights Reserved.</h5>

@@ -9,6 +9,9 @@ footer{
 	margin-top: 15px;
 	margin-bottom: 30px;	
 }
+input{
+	border-radius: 5px;
+}
 table{
 	margin:5px;
 }

@@ -8,6 +8,9 @@ body {
 footer{
 	margin-bottom: 30px;	
 }
+td{
+	padding:15px;	
+}
 .RR {
 	border-radius: 15px;
 }

@@ -8,6 +8,9 @@ body {
 .RR {
 	border-radius: 15px;
 }
+.KK {
+	max-height: 80px;
+}
 .iconify {
 	width: 20px;
 	height: 20px;

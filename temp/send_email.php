@@ -1,20 +1,16 @@
 <?php
 if(isset($_POST['email'])) {
  
-    // EDIT THE 2 LINES BELOW AS REQUIRED
     $email_to = "nikoloz.sanakoevi@gmail.com";
     $email_subject = "rawrawrwar";
  
     function died($error) {
-        // your error code can go here
         echo "შეცდომა! ";
         echo $error."<br /><br />";
-        echo "Please go back and fix these errors.<br /><br />";
         die();
     }
  
  
-    // validation expected data exists
     if(!isset($_POST['first_name']) ||
         !isset($_POST['last_name']) ||
         !isset($_POST['email']) ||

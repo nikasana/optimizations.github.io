@@ -17,7 +17,9 @@ body {
 	float: center;
 	margin: 10px;
 }
-
+.marginR{
+	margin-right: 10px;	
+}
 .mySlides img{
 	width: 1100px;
 	height: 480px;

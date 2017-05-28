@@ -9,8 +9,11 @@ footer{
 	margin-top: 15px;
 	margin-bottom: 30px;	
 }
+table{
+	margin:5px;
+}
 td{
-	padding:15px;	
+	padding:10px;	
 }
 .RR {
 	border-radius: 15px;

@@ -46,45 +46,12 @@
 		</section>
 	<!-- >Contact Form</!-->
 	<section>
-				<form name="contactform" method="post" action="send_email.php">
-<table width="450px">
-<tr>
- <td valign="top">
-  <label for="first_name">First Name *</label>
- </td>
- <td valign="top">
-  <input  type="text" name="first_name" maxlength="50" size="30">
- </td>
-</tr>
-<tr>
- <td valign="top">
-  <label for="last_name">Last Name *</label>
- </td>
- <td valign="top">
-  <input  type="text" name="last_name" maxlength="50" size="30">
- </td>
-</tr>
-<tr>
- <td valign="top">
-  <label for="email">Email Address *</label>
- </td>
- <td valign="top">
-  <input  type="text" name="email" maxlength="80" size="30">
- </td>
-</tr>
-<tr>
- <td valign="top">
-  <label for="text">Text *</label>
- </td>
- <td valign="top">
-  <textarea  name="text" maxlength="1000" cols="50" rows="10"></textarea>
- </td>
-</tr>
-<tr>
- <td colspan="2" style="text-align:center">
-  <input type="submit" value="Submit">
- </td>
-</tr>
+<form action="send_email.php" method="post">
+<table border="0" style="background:#ececec" cellspacing="5">
+<tr align="left"><td>Name</td><td><input type="text" size="30" name="name"></td></tr>
+<tr align="left"><td>Email address</td><td><input type="text" size="30" name="email"></td></tr>
+<tr align="left"><td valign="top">Comments</td><td><textarea name="comments" rows="6" cols="30"></textarea></td></tr>
+<tr align="left"><td>&nbsp;</td><td><input type="submit" value="Send"><font face="arial" size="1"></td></tr>
 </table>
 </form>
 		</section>

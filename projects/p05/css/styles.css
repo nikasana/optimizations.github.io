@@ -10,11 +10,18 @@ body {
 .text-light {
   color: #7d97ad;
 }
-
+.fiverr-seller-text, .fiverr-seller-category{
+	display: none;
+}
+.fiverr-icon{
+	height: 40px;
+}
 .text-thin {
   font-weight: 100;
 }
-
+#fiverr-seller-widget-content-eea96909-3ccc-43db-bb64-fdb59d2b8337{
+	height: 200px;
+}
 .project {
     margin: 0 auto;
 }

@@ -3,7 +3,7 @@ body {
   color: #2d3c49;
   font-weight: 300;
   padding: 5px;
-  background-color: white;	
+  background-color:  #e67e22;	
 }
 footer{
 	margin-top: 15px;
@@ -25,7 +25,7 @@ td{
 	max-height: 80px;
 }
 .COLh{
-	color: #e67e22 ;
+	color: #3194d6 ;
 }
 .iconify {
 	width: 20px;

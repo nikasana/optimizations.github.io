@@ -1,0 +1,450 @@
+/*remove defaul*/
+body{
+  margin: 0;
+}
+/* highlight and secnter sections*/
+/*section, header, main, footer{
+  border: 1px solid black;
+}*/
+section{
+  max-width: 1280px;
+  position: relative;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+/*back*/
+#contacts, #scontacts, #keybuttons, #skeybuttons, #bottom, #sbottom{
+  background-color: black;
+}
+
+#copyright, #scopyright{
+  background-color: #46B39B;
+}
+/*+   copyright*/
+#copyright{
+  text-align: center;
+  padding-top: 12px;
+  padding-bottom: 32px;
+}
+/*top*/
+#scontacts{
+  padding: 18px;
+}
+
+#number img, #social img{
+  height: 16px;
+  vertical-align: middle;
+}
+#social img{
+  width: 16px;
+}
+#number p{
+  color: white;
+}
+#number{
+  text-align: left;
+}
+#social{
+  text-align: right;
+  float: right;
+}
+#number, #social{
+  display: inline;
+}
+#number p{
+  font-size: 16px;
+  display: inline;
+  vertical-align: middle;
+}
+/* logo line */
+#slogonsearch img{
+  height: 85px;
+  width: 85px;
+  display: inline;
+}
+
+form{
+  display: inline;
+  float: right;
+  margin: auto 0;
+  padding: 19px;
+}
+
+input[type=text] {
+  width: 130px;
+  box-sizing: border-box;
+  border: 2px solid #46B39B;
+  color: #46B39B
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  padding: 12px 20px 12px 20px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:hover {
+  width: 250px;
+}
+
+#slogonsearch{
+  padding: 20px;
+}
+/*nav*/
+#keybuttons{
+  color: white;
+  padding: 20px;
+}
+#keybuttons img{
+  height: 24px;
+  vertical-align: middle;
+}
+#keybuttons a span{
+  vertical-align: middle;
+}
+#cartnaccount, #categories{
+  display: inline;
+}
+#cartnaccount{
+  float: right;
+}
+#categories a span, #cartnaccount a span{
+  margin: 5px;
+}
+
+#keybuttons a{
+
+  color: white;
+  text-decoration: none;
+}
+
+#categories a, #cartnaccount a{
+
+  color: white;
+  text-decoration: none;
+}
+
+#keybuttons a:hover{
+  color: #46B39B;
+}
+
+#categories a:hover, #cartnaccount a:hover{
+  color: #46B39B;
+}
+/*s*/
+.mySlides {display: none;}
+.io {
+  vertical-align: middle;
+  opacity: 1;
+  object-fit: cover;
+  height: 340px;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  width: 100%;
+
+  position: relative;
+  margin: auto;
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 45px;
+  position: absolute;
+  top: 100px;
+  width: 100%;
+
+  text-align: center;
+  color: #46B39B;
+}
+
+.mini{
+  font-size: 34px;
+  color: white;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: opacity 1.5s ease-in-out;
+  display: none;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: ease-in-out;
+  -webkit-animation-duration: 0s;
+  animation-name: ease-in-out;
+  animation-duration: 0s;
+}
+
+
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+
+/*                   my                 divline */
+#divline{
+  height: 15px;
+  background-color: #1B4E4F;
+}
+
+
+/* products */
+
+#title{
+  margin: 20px;
+  font-size: 30px;
+   color: #1B4E4F;
+}
+
+#line2{
+  width: 100px;
+  height: 20px;
+  margin: 20px;
+  background-color: #1B4E4F;
+}
+
+#tprods{
+  max-width: 1280px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+
+}
+
+.tprod{
+  text-align: center;
+  margin: 12px;
+  min-width: 260px;
+  border: 1px solid #DFDFDF;
+  border-radius: 15px;
+  padding-bottom: 15px;
+  display: inline-block;
+}
+
+
+
+
+
+.tprod:hover{
+  border: 1px solid #D60015;
+  cursor: pointer;
+}
+
+.pi{
+  height: 240px;
+  width: 240px;
+  margin-top: 15px;
+  border-radius: 3px;
+}
+
+.desc{
+  text-align: left;
+  width: 220px;
+  padding: 0 15px;
+}
+
+.pn{
+ font-size: 25px;
+ color: #1B4E4F;
+}
+.pp{
+  font-size: 15px;
+  color: #1B4E4F;
+}
+
+/* categories */
+
+#catlist{
+  margin: 20px;
+  margin-top: 34px;
+}
+
+.catchoice{
+  color: #46B39B;
+  text-decoration: none;
+  margin-right: 10px;
+  border-radius: 50px;
+  padding: 10px;
+  border: 1px solid #46B39B;
+
+}
+
+.catchoice:hover{
+  border: 1px solid #1B4E4F;
+}
+
+/* პროდ */
+#line3{
+  width: 100px;
+  height: 10px;
+  margin: 20px;
+  background-color: #1B4E4F;
+}
+
+a{
+  text-decoration: none;
+}
+
+#line4{
+  
+  height: 2px;
+  
+  background-color: #D60015;
+}
+
+#pdesc{
+  padding-bottom: 20px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+#thep{
+  text-align: center;
+  margin-top: 70px;
+  margin-bottom:100px;
+}
+
+#thepi img{
+  height: 500px;
+  border-radius: 2px;
+}
+#thepi, #thepd{
+  display: inline-block;
+}
+#thepd{
+  vertical-align: top;
+  text-align: left;
+}
+#thepn, #thepp{
+  margin: 20px;
+font-size: 30px;
+color: #1B4E4F;
+}
+
+#thepb1, #thepb2{
+  width: 180px;
+  padding: 10px;
+  background-color: white;
+  color: #D60015;
+  border: 2px solid #D60015;
+  margin: 20px;
+  text-align: center;
+}
+#thepb1:hover, #thepb2:hover{
+  background-color: #D60015;
+  color: white;
+  cursor: pointer;
+}
+
+/* cart */
+
+#cartimg img{
+  height: 140px;
+  width: 140px;
+}
+
+
+
+#carts{
+  max-width: 640px;
+  margin-top: 50px;
+  margin-bottom: 330px;
+}
+
+.cartiis{
+  display: inline-block;
+  height: 300px;
+}
+
+#cartis{
+  vertical-align: top;
+}
+
+.cartline{
+  height: 2px;
+  background-color: #1B4E4F;
+  margin-bottom: 6px;
+  margin-top: 6px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+
+
+#itd{
+  min-width: 120px;
+}
+#nametd{
+  min-width:300px;
+}
+#qtd, #ttd, #ttd, #pricetd{
+  width: 30px;
+}
+td img{
+  height: 100px;
+}
+
+
+#x{
+  width: 45px;
+  height: 45px;
+  padding: 10px;
+  
+  background-color: #D60015;
+  color: white;
+  border: 2px solid #D60015;
+  margin: 2px;
+  text-align: center;
+}
+#x:hover{
+  background-color: white;
+  color: #D60015;
+  cursor: pointer;
+}
+
+#actionbd{
+  text-align: right;
+  margin-top: 20px;
+}
+
+#actionb{
+  width: 100px;
+  padding: 10px;
+  background-color: white;
+  color: #D60015;
+  border: 2px solid #D60015;
+  margin: 0px;
+  text-align: center;
+  display: inline-block;
+}
+#actionb:hover{
+  background-color: #D60015;
+  color: white;
+  cursor: pointer;
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE HTML> 
+<html> 
+<head> 
+<style> 
+body{ 
+    text-align: center; 
+    background: black; 
+  font-family: sans-serif; 
+  font-weight: 100; 
+} 
+h1{ 
+  color: #396; 
+  font-weight: 100; 
+  font-size: 78px; 
+  margin: 40px 0px 20px; 
+} 
+ #clockdiv{ 
+    font-family: sans-serif; 
+    color: white; 
+    display: inline-block; 
+    font-weight: 100; 
+    text-align: center; 
+    font-size: 300px; 
+} 
+#clockdiv > div{ 
+    padding: 10px; 
+    border-radius: 3px; 
+    background: black; 
+    display: inline-block; 
+} 
+#clockdiv div > span{ 
+    padding: 15px; 
+    border-radius: 3px; 
+    background: #00816A; 
+    display: inline-block; 
+} 
+smalltext{ 
+    padding-top: 5px; 
+    font-size: 16px; 
+} 
+</style> 
+</head> 
+<body> 
+<h1>Countdown Clock</h1> 
+<div id="clockdiv"> 
+  <div> 
+    <span class="minutes" id="minute"></span> 
+    <div class="smalltext">Minutes Left</div> 
+  </div> 
+
+</div> 
+  
+<p id="demo"></p> 
+  
+<script> 
+  
+var deadline = new Date().getTime()+900*60*1000; 
+  
+var x = setInterval(function() { 
+  
+var now = new Date().getTime(); 
+var t = deadline - now; 
+//var days = Math.floor(t / (1000 * 60 * 60 * 24)); 
+//var hours = Math.floor((t%(1000 * 60 * 60 * 24))/(1000 * 60 * 60)); 
+var minutes = Math.floor(t / (1000 * 60)); 
+//var seconds = Math.floor((t % (1000 * 60)) / 1000); 
+//document.getElementById("day").innerHTML =days ; 
+//document.getElementById("hour").innerHTML =hours; 
+document.getElementById("minute").innerHTML = minutes;  
+//document.getElementById("second").innerHTML =seconds;  
+if (t < 0) { 
+        clearInterval(x); 
+        document.getElementById("demo").innerHTML = "TIME UP"; 
+        //document.getElementById("day").innerHTML ='0'; 
+        //document.getElementById("hour").innerHTML ='0'; 
+        document.getElementById("minute").innerHTML ='0' ;  
+        //document.getElementById("second").innerHTML = '0'; 
+      } 
+}, 1000); 
+</script> 
+</body> 
+</html> 

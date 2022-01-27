@@ -26,9 +26,13 @@
         </div>
 
         <h3>Total revenue increase <span id="savingsYearly" class="two-digits">$204</span> per week</h3>
+        <h3>Total revenue increase <span id="savingsYearly2" class="two-digits">$204</span> per Canadian season (24
+            weeks)</h3>
         <a class="btn" href="#">Button</a>
 
     </div>
+
+
 
     <script>
         let slider1 = document.getElementById("players");
@@ -38,6 +42,7 @@
         let value2 = document.getElementById("range-value2");
 
         let mainValue = document.getElementById("savingsYearly");
+        let mainValue2 = document.getElementById("savingsYearly2");
 
         updateMainValue();
 
@@ -52,6 +57,7 @@
 
         function updateMainValue() {
             mainValue.innerHTML = "$" + (slider1.value * slider2.value);
+            mainValue2.innerHTML = "$" + (slider1.value * slider2.value * 24);
         }
     </script>
 </body>

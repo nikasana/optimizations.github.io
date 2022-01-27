@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="savings-calculator">
+        <h1>Revenue Per Golfer</h1>
+
+        <hr>
+        <label>1. How many players per week?</label>
+        <div class="players-slider">
+            <input type="range" id="players" name="players" min="100" max="500" value="100" step="25">
+            <strong><span id="range-value">100</span></strong>
+        </div>
+        <label>2. Increase revenue per player, per week:</label>
+        <div class="players-slider2">
+            <input type="range" id="revenue" name="revenue" min="20" max="200" value="20" step="10">
+            <strong>$<span id="range-value2">20</span></strong>
+        </div>
+
+        <h3>Total revenue increase <span id="savingsYearly" class="two-digits">$204</span> per week</h3>
+        <a class="btn" href="#">Button</a>
+
+    </div>
+
+    <script>
+        let slider1 = document.getElementById("players");
+        let slider2 = document.getElementById("revenue");
+
+        let value1 = document.getElementById("range-value");
+        let value2 = document.getElementById("range-value2");
+
+        let mainValue = document.getElementById("savingsYearly");
+
+        updateMainValue();
+
+        slider1.addEventListener('input', () => {
+            value1.innerHTML = slider1.value;
+            updateMainValue();
+        })
+        slider2.addEventListener('input', () => {
+            value2.innerHTML = slider2.value;
+            updateMainValue();
+        })
+
+        function updateMainValue() {
+            mainValue.innerHTML = "$" + (slider1.value * slider2.value);
+        }
+    </script>
+</body>
+
+</html>

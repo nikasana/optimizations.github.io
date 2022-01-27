@@ -1,0 +1,129 @@
+body {
+  font-family: sans-serif;
+  text-align: center;
+  background: #f5f5f5;
+}
+
+#savingsYearly, #savingsYearly2, #savingsMonthly {
+  color: #4c9612;
+}
+
+#savingsMonthly {
+  font-weight: 700;
+}
+
+#savingsYearly, #savingsYearly2 {
+  display: block;
+  font-size: 60px;
+}
+
+#players,
+#revenue {
+  margin-top: 10px;
+}
+
+#savings-calculator {
+  display: block;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 35px 20px;
+  background: #fff;
+  box-shadow: 0 8px 20px -3px rgba(0,0,0,0.3);
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+hr {
+  margin: 20px 0;
+  background: #ddd;
+  border: none;
+  height: 1px;
+}
+
+img {
+  width: 100%;
+  max-width: 200px;
+  margin:0;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+.btn {
+  background-image: linear-gradient(to bottom,#009DDD,#0c65a7);
+    font-size: 20px;
+    font-weight: 300;
+    color: #fff;
+    display: inline-block;
+    padding: 24px 20px;
+    position: relative;
+    text-decoration: none;
+    border: solid 1px transparent;
+    border-radius: 4px;
+    min-width: 200px;
+    -webkit-transition: all .1s ease-in-out;
+    -moz-transition: all .1s ease-in-out;
+    -ms-transition: all .1s ease-in-out;
+    -o-transition: all .1s ease-in-out;
+    transition: all .1s ease-in-out;
+    width: 100%;
+  cursor: pointer;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+label {
+  margin-bottom: 10px!important;
+  display: block;
+}
+
+#players, 
+#revenue {
+  width: 230px;
+  max-width: 100%;
+  -webkit-appearance: none;
+  height: 15px;
+  border-radius: 10px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 1;
+}
+  
+#players::-webkit-slider-thumb,
+#revenue::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: white;
+  cursor: pointer;
+  border-radius: 50%;
+  border: solid 8px #7AC142;
+  border: solid 8px #4c9612;
+  border: solid 8px #009DDD;
+  border: solid 8px #0c65a7;
+}
+
+#players::-moz-range-thumb,
+#revenue::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #7AC142;
+  cursor: pointer;
+}
+
+i.disclaimer {
+  margin-top: 10px;
+  font-size: 9px;
+  color: #999;
+  line-height: 1.4em!important;
+  display: block;
+}
+
+.players-slider{
+  margin-bottom: 30px;
+}

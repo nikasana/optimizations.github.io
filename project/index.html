@@ -28,7 +28,7 @@
         <h3>Total revenue increase <span id="savingsYearly" class="two-digits">$204</span> per week</h3>
         <h3>Total revenue increase <span id="savingsYearly2" class="two-digits">$204</span> per Canadian season (24
             weeks)</h3>
-        <a class="btn" href="#">Button</a>
+        <a class="btn" href="https://google.com">Button</a>
 
     </div>
 
@@ -44,6 +44,8 @@
         let mainValue = document.getElementById("savingsYearly");
         let mainValue2 = document.getElementById("savingsYearly2");
 
+
+
         updateMainValue();
 
         slider1.addEventListener('input', () => {
@@ -56,9 +58,47 @@
         })
 
         function updateMainValue() {
-            mainValue.innerHTML = "$" + (slider1.value * slider2.value);
-            mainValue2.innerHTML = "$" + (slider1.value * slider2.value * 24);
+            mainValue.innerHTML = "$" + updateNumber(slider1.value * slider2.value);
+            mainValue2.innerHTML = "$" + updateNumber(slider1.value * slider2.value * 24);
         }
+
+        function fillEmpty(number) {
+            if (number < 10)
+                return "00" + number
+            if (number < 100)
+                return '0' + number
+            return number
+        }
+
+        function updateNumber(startingNumber) {
+            let out = "";
+            let startingNumberCopy = startingNumber;
+            //console.log(startingNumberCopy)
+            if (startingNumber < 0) {
+                startingNumberCopy = -1 * startingNumber;
+                out += '-';
+            }
+
+            if (startingNumberCopy >= 1000000) {
+                out += Math.floor(startingNumberCopy / 1000000)
+                out += ','
+                out += fillEmpty(Math.floor((startingNumberCopy % 1000000) / 1000))
+                out += ','
+                out += fillEmpty(startingNumberCopy % 1000)
+            }
+            else if (startingNumberCopy >= 1000) {
+                out += Math.floor(startingNumberCopy / 1000)
+                out += ','
+                out += fillEmpty(startingNumberCopy % 1000)
+            } else {
+                out += startingNumberCopy
+            }
+
+
+            return out;
+        }
+
+
     </script>
 </body>
 

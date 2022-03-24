@@ -60,6 +60,16 @@
   position: absolute;
   /* border-radius: 0 15px 15px 0; */
   left: -3px;
+  transition: all 0.3s;
+}
+
+.job_item:hover .project-title::after {
+  width: 80px;
+  height: 2px;
+  transform: translate(0px, 0px) rotate(0deg);
+  /* border-radius: 0 15px 15px 0; */
+  left: 0px;
+  bottom: 0;
 }
 
 .css-round .project-title::after {

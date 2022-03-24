@@ -42,10 +42,34 @@
 }
 
 .project-title {
-  text-align: center;
+  text-align: left;
   font-weight: bold;
+  padding-left: 5px;
+  border-left: 1px solid rgb(143, 143, 143);
   /* text-decoration: underline; */
   margin-top: 10px;
+  position: relative;
+}
+
+.project-title::after {
+  content: "";
+  width: 6px;
+  transform: translate(-2px, -3px) rotate(15deg);
+  height: 100%;
+
+  position: absolute;
+  /* border-radius: 0 15px 15px 0; */
+  left: -3px;
+}
+
+.css-round .project-title::after {
+  background-color: rgba(98, 96, 219, 0.466);
+}
+.js-round .project-title::after {
+  background-color: rgba(211, 219, 96, 0.452);
+}
+.canvas-round .project-title::after {
+  background-color: rgba(219, 176, 96, 0.445);
 }
 
 .css-round,

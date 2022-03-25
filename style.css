@@ -126,3 +126,31 @@
   bottom: -6px;
   right: -20px;
 }
+
+.btns {
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  gap: 10px;
+  margin: 10px;
+}
+
+.btns a {
+  background-color: rgb(85, 149, 201);
+  border: none;
+  border-radius: 30px;
+  padding: 5px;
+}
+
+.btns a:hover {
+  cursor: pointer;
+  background-color: rgb(50, 153, 238);
+}
+
+.btns a:link,
+.btns a:visited,
+.btns a:active,
+.btns a {
+  text-transform: none;
+  color: white;
+}

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Frontend Mentor | Stats preview card component</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: hsl(233, 47%, 7%);
+      }
+      img {
+        border-radius: 0 10px 10px 0;
+      }
+      .stats-component {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 360px;
+        width: 900px;
+        border-radius: 10px;
+        background-color: hsl(244, 38%, 16%);
+      }
+      .text {
+        padding: 35px;
+        padding-left: 50px;
+        width: 300px;
+      }
+      .title {
+        color: white;
+        font-size: 28px;
+      }
+      .highlight {
+        color: hsl(277, 64%, 61%);
+      }
+      .subtitle {
+        color: hsla(0, 0%, 100%, 0.75);
+        line-height: 1.3;
+        font-size: 14px;
+        line-height: 1.4;
+      }
+      .data {
+        margin-bottom: 0;
+        color: white;
+      }
+      .data-description {
+        margin-top: 2px;
+        color: hsla(0, 0%, 100%, 0.6);
+        text-transform: uppercase;
+        font-size: 10px;
+        letter-spacing: 2px;
+      }
+      .stats {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .background {
+        display: flex;
+        border-radius: 0 10px 10px 0;
+        position: relative;
+      }
+
+      .layer {
+        background-color: hsla(277, 64%, 61%, 0.63);
+        border-radius: 0 10px 10px 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .attribution {
+        color: white;
+        margin-top: 30px;
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+
+      @media (max-width: 920px) {
+        .stats-component {
+          flex-direction: column;
+          align-items: center;
+
+          text-align: center;
+          width: 320px;
+          height: 730px;
+        }
+        .text {
+          padding: 10px;
+          order: 2;
+          width: 260px;
+        }
+        img {
+          width: 320px;
+          border-radius: 10px 10px 0 0;
+        }
+        .layer {
+          border-radius: 10px 10px 0 0;
+        }
+        .stats {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="stats-component">
+        <div class="text">
+          <h1 class="title">
+            Get <span class="highlight">insights</span> that help your business
+            grow.
+          </h1>
+          <p class="subtitle">
+            Discover the benefits of data analytics and make better decisions
+            regarding revenue, customer experience, and overall efficiency.
+          </p>
+          <div class="stats">
+            <div class="stats-item">
+              <h2 class="data">10k+</h2>
+              <p class="data-description">companies</p>
+            </div>
+            <div class="stats-item">
+              <h2 class="data">314</h2>
+              <p class="data-description">templates</p>
+            </div>
+            <div class="stats-item">
+              <h2 class="data">12m+</h2>
+              <p class="data-description">queries</p>
+            </div>
+          </div>
+        </div>
+        <div class="background">
+          <img src="images/image-header-desktop.jpg" alt="" />
+          <div class="layer"></div>
+        </div>
+      </div>
+
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by <a href="#">Your Name Here</a>.
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Interactive rating component</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        margin-top: 50px;
+        font-size: 11px;
+        text-align: center;
+        color: white;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: hsl(216, 12%, 8%);
+      }
+      .container {
+        width: 350px;
+        background-color: hsl(213, 19%, 18%);
+        padding: 30px;
+        border-radius: 20px;
+      }
+
+      .star-container {
+        background-color: hsla(216, 12%, 54%, 0.205);
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .feedback-title {
+        color: hsl(0, 0%, 100%);
+        margin: 20px 0 0 0;
+      }
+      .feedback-description {
+        color: hsl(217, 12%, 63%);
+        margin: 5px 0 30px 0;
+      }
+      .ratings {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin: 0px 0 30px 0;
+      }
+      .rating {
+        background-color: hsla(216, 12%, 54%, 0.205);
+        color: hsl(217, 12%, 63%);
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+      .rating:hover {
+        background-color: hsla(217, 12%, 63%, 0.548);
+      }
+      .submit {
+        width: 100%;
+        padding: 10px 0;
+        border-radius: 1000px;
+        background-color: hsl(25, 97%, 53%);
+        color: white;
+        border: none;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        cursor: pointer;
+      }
+      .submit:hover {
+        background-color: white;
+        color: hsl(25, 97%, 53%);
+      }
+      .feedback-result {
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+      }
+      .results {
+        margin: 30px 0;
+        background-color: hsla(217, 12%, 63%, 0.137);
+        width: 180px;
+        border-radius: 100px;
+        padding: 3px;
+        color: hsl(25, 97%, 53%);
+      }
+      .hide {
+        display: none;
+      }
+      .orange,
+      .orange:hover {
+        background-color: hsl(25, 97%, 53%);
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Rating state start -->
+    <div class="container">
+      <div class="feedback">
+        <div class="star-container">
+          <img src="images/icon-star.svg" alt="star-icon" />
+        </div>
+
+        <h1 class="feedback-title">How did we do?</h1>
+        <p class="feedback-description">
+          Please let us know how we did with your support request. All feedback
+          is appreciated to help us improve our offering!
+        </p>
+        <div class="ratings">
+          <div class="rating">1</div>
+          <div class="rating">2</div>
+          <div class="rating">3</div>
+          <div class="rating">4</div>
+          <div class="rating">5</div>
+        </div>
+        <button class="submit">Submit</button>
+      </div>
+      <div class="feedback-result hide">
+        <img
+          src="images/illustration-thank-you.svg"
+          alt="thank you illustration"
+        />
+
+        <p class="results">
+          You selected
+          <span class="result-num">3</span>
+          out of 5
+        </p>
+
+        <h1 class="feedback-title">Thank you!</h1>
+        <p class="feedback-description">
+          We appreciate you taking the time to give a rating. If you ever need
+          more support, don’t hesitate to get in touch!
+        </p>
+      </div>
+    </div>
+
+    <!-- Rating state end -->
+
+    <!-- Thank you state start -->
+
+    <!-- Thank you state end -->
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div>
+
+    <script type="text/javascript" src="app.js"></script>
+  </body>
+</html>

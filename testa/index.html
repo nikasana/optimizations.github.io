@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>4nikoloz</title>
+	<meta name="4nikoloz" content="4nikoloz" />
+	<meta name="format-detection">
+	
+
+	
+	</head>
+	<style>
+	
+					:root {
+						
+
+						font-size: 16px
+						
+						}
+						
+					*, *::before, *::after{ 
+				    	margin: 0;
+						padding: 0;
+						border: 0;
+						box-sizing: content-box;
+						
+						}
+							
+					
+
+					html {
+						
+						min-width:100vw;
+					 	background-color: transparent;
+						font-family: -apple-system, BlinkMacSystemFont,
+						'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+						'Open Sans', 'Helvetica Neue', sans-serif;
+						text-rendering: geometricPrecision;
+						-webkit-font-smoothing: antialiased;
+						
+						}
+						
+						
+					body {
+						
+						background-color: hsla(35, 50%, 95%, 1);
+						overflow: auto;
+						min-height: 100vh;
+						margin: auto;
+						overflow-x: auto;
+						overflow-y: auto;
+						white-space: normal;
+
+						}
+						
+					.header {
+						padding-top: 7rem;
+  						display: flex;
+						justify-content: space-around;
+						align-items: center;
+						height:4.5rem;
+						width: 100%;
+						background-color:hsla(326, 80%, 70%, 1);
+						
+						}
+					
+					.header>img {
+						height: 3rem;
+						object-fit:contain;
+						min-width: 0;
+						}
+						
+					.footer {
+						display: flex;
+						justify-content: space-around;
+						align-items: center;
+						max-width: 100vw;
+						width: 100vw;
+						min-width: 100%;
+						height: 4rem;
+						background-color:hsla(132, 53%, 77%, 1);
+						margin-top: auto;
+						}
+					
+					.footer>img {
+						height: 3rem;
+						object-fit:contain;
+						min-width: 0;
+					}
+						
+					
+					.ui {
+						position: fixed;
+						top:0;
+						left:0;
+						padding-top: 4rem;
+						box-sizing: content-box;
+						display: flex;
+						flex-flow: row wrap;
+						align-items: flex-end;
+						justify-content: center;
+						max-width: 100%;
+						min-width: 100%;
+						background-color: hsla(223, 100%, 10%, 1);
+						font-weight: 300;
+						letter-spacing: 0.04rem;
+						word-spacing: 0.02rem;
+						line-height: 2.5ex;
+						color: white;
+						padding: 0.5rem 0;
+						min-height: 5rem;
+
+						}
+					
+						
+					.ui > div {
+						
+						padding: 0.5rem .5rem;
+						text-align: center;
+						height: auto;
+						font-size: 1.5rem;
+						font-family: helvetica;
+						border-radius: 45px;
+						flex:1 1 content;
+						display: absolute;
+
+								}
+
+								.ui div {
+									position: relative; 
+	
+	 /* the height of the main nav */
+}
+
+.ui div .menu{
+	width:170px;
+	display: none;
+	text-align: left;
+}
+
+
+						
+ .ui div:hover .menu {
+	display:flex;
+	flex-direction: column;
+	position: absolute;
+	left: 0;
+	top: 100%;
+	
+	padding: 0 0 10px 0;
+	border-radius: 10px;
+	background-color: hsla(223, 100%, 10%, 1);
+}
+
+
+
+.ui div .menu .menu__item a{
+display: flex;
+	width: 100%;
+	color: white;
+	text-decoration: none;
+	padding: 10px 10px;
+}
+				
+/*additional*/
+.ui div .menu .menu__item{
+	position: relative;
+}
+.ui div .menu .menu {
+	top:0px; 
+	left:170px;
+	position: absolute;
+}
+
+/* Second, Third and more Tiers	*/
+.ui div .menu .menu .menu {
+	position: absolute;
+	
+}
+
+/* open */
+.ui div .menu .menu{
+	
+	display: none;
+	
+}
+.ui div .menu .menu__item:hover > .menu{
+	
+	display: flex;
+	
+}
+/* Change this in order to change the Dropdown symbol */
+.menu__item > a:after { content:  ' +'; margin-left: 6px; }
+.menu__item > a:only-child:after { content: ''; }
+
+.menu{
+	z-index: 1;
+}
+
+/* .ui:hover + .scrollable__area{
+	overflow: hidden;
+} */
+
+</style>
+
+<body>
+
+
+		<div class="ui">
+			<div>❤</div>
+			<div>☀</div>
+			
+			<div>p</div>
+			<div>h1</div>
+			<div>h2 +
+				<div class="menu">
+				<div class="menu__item"><a href="https://watercolor1.pez.4t4.io">hello</a></div>
+				<div class="menu__item"><a href="#">more info</a></div>
+				<div class="menu__item"><a href="#">goodbye</a></div>
+			</div>  </div>
+			<div>h3</div>
+			<div>h4 +
+				<div class="menu">
+					<div class="menu__item"><a href="https://watercolor1.pez.4t4.io">hello</a></div>
+					<div class="menu__item"><a href="#">more info</a></div>
+					<div class="menu__item"><a href="#">goodbye</a>
+					
+						<div class="menu">
+							<div class="menu__item"><a href="#">HTML/CSS</a></div>
+							<div class="menu__item"><a href="#">jQuery</a></div>
+							<div class="menu__item"><a href="#">Other</a>
+									<!-- Third Tier Drop Down -->
+									<div class="menu">
+											<div class="menu__item"><a href="#">Stuff</a></div>
+											<div class="menu__item"><a href="#">Things</a></div>
+											<div class="menu__item"><a href="#">Other Stuff</a></div>
+									</div>
+							</div>
+					</div></div>
+				</div>  
+			</div>
+			
+			<div style="font-weight:800">B</div>
+			<div style="font-family:serif">T</div>
+			<div><pre><code>&lt;br&gt;</code></pre></div>
+			<div>✳</div>
+			<div>🌸</div>
+			<div>🤑</div>
+			<div>😀</div>
+			<div>🌈</div>
+			<div>✈</div>
+			<div>&#10148;</div>
+			<div>⏯</div>
+			<div>🟢</div>
+			<div>🔷</div>
+		</div>
+	
+
+
+		<div class="header">
+		
+		<img src="https://ik.imagekit.io/ymjlyrr8zyb/D65E0D71-AFE3-4539-8323-D3F0FBAD6E59_FXWjLCF2g.png?ik-sdk-version=javascript-1.4.3&updatedAt=1654793491430" />
+		
+		<img src="https://ik.imagekit.io/ymjlyrr8zyb/561644B4-677E-438C-B20F-907270A6E803_M06qknw7d.png?ik-sdk-version=javascript-1.4.3&updatedAt=1652100202942" />
+		
+		<img src="https://ik.imagekit.io/ymjlyrr8zyb/love-it_-5afCVEuq.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1656515393873" />
+		
+		</div>
+		
+		<div style= "display:flex;width:100vw;justify-content:center;text-align:center;"><h2 style="max-width:34rem;padding:1rem"Hi Nikoloz<br />The rest of the web page follows. This is my navigation bar which is a flex container<br />I would like simple dropdowns from the icons on the bar.<br /><br />My bar is fixed at top 0, left, 0 so the rest of the page can scroll. The css code I am sending along with this is pure css. I found it on codepen and it seems to work well. I don't want any js. Just pure css to achieve this<br /><br />Could you convert the code so it adapts to my flex container navigation bar? I am a self taught css coder so I only really understand simple &lt;div&gt; I get confused with all these unstructured list items. I would like it really clear so I can understand what's going on !<br /><br />Can you do that for me? I would be very grateful to you.<br /><br />Is it possible to have the dropdown items flex as well? I would like the drop down items to be as simple and elegant as possible rather than a 'boxy' look<br /><br />regards Pez</h4></div>
+		
+		
+
+							
+				
+
+		<div class="footer" style="  background: url(https://ik.imagekit.io/ymjlyrr8zyb/pezqi-2-svg_xLlITE2Bj.svg?ik-sdk-version=javascript-1.4.3&updatedAt=1653766478023); 
+	background-repeat;background-size:1rem"></div>
+		
+
+		
+
+</body>
+
+</html>

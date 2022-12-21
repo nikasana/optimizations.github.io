@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Overpass:wght@300;600&display=swap");
+    </style>
+    <style>
+      html {
+        font-family: Lexend;
+        box-sizing: border-box;
+      }
+      .container {
+        max-width: 688px;
+        margin: 0 auto;
+      }
+      .calculator {
+        display: flex;
+      }
+      @media (max-width: 720px) {
+        .calculator {
+          flex-direction: column;
+        }
+        .container {
+          max-width: 344px;
+        }
+      }
+      .logo {
+        font-size: 34px;
+        letter-spacing: 0.25px;
+        font-weight: normal;
+        margin-bottom: 18px;
+      }
+      .into {
+        font-size: 14px;
+        letter-spacing: 0.1px;
+        font-weight: medium;
+      }
+      .top {
+        padding: 34px 20px;
+      }
+
+      .calculator .input,
+      .calculator .output {
+        flex: 1;
+        padding: 20px;
+      }
+      .calculator .input {
+      }
+      .calculator .output {
+        background-color: #e9ecff;
+        border-radius: 14px;
+      }
+      .input-description {
+        width: 100%;
+        display: flex;
+        height: 24px;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+      }
+
+      .input .field-label,
+      .input .rate-field-label {
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      input,
+      select {
+        box-sizing: border-box;
+        width: 100%;
+        height: 44px;
+        font: inherit;
+        border: 1px solid #515260;
+        border-radius: 4px;
+        font-size: 14px;
+        margin-bottom: 12px;
+        padding: 8px 16px 8px 16px;
+      }
+
+      select option span {
+        padding: 44px;
+        display: inline-block;
+      }
+
+      input:active,
+      input:focus,
+      select:active,
+      select:focus {
+        background-color: #e5eeff;
+        border-color: #0157ff;
+        border-width: 2px;
+
+        outline: none;
+      }
+
+      select:focus option,
+      select:active option {
+        background-color: white;
+      }
+
+      .input-borrow,
+      .input-borrow-2 {
+        padding: 7px 15px 7px 25px;
+      }
+      .monthly-payment {
+        padding: 7px 65px 7px 25px;
+      }
+      .input-rate {
+        padding: 7px 25px 7px 15px;
+      }
+      .input-years {
+        padding: 7px 55px 7px 15px;
+      }
+      .input-borrow:active,
+      .input-borrow:focus,
+      .input-borrow-2:active,
+      .input-borrow-2:focus {
+        padding: 7px 14px 7px 24px;
+        /* position: relative; */
+      }
+      .input-borrow-icon {
+        position: relative;
+      }
+      .input-borrow-icon::before,
+      .monthly-payment-icon::before {
+        height: 12px;
+        width: 12px;
+        bottom: -22px;
+        color: #151515;
+        content: "$";
+        font-size: 14px;
+
+        font-weight: normal;
+        left: 12px;
+        line-height: 1.75;
+        position: absolute;
+      }
+      .monthly-payment-icon::after {
+        height: 12px;
+        width: 12px;
+        bottom: -22px;
+        color: #151515;
+        content: "/month";
+        font-size: 14px;
+        color: #979797;
+        font-weight: normal;
+        right: 52px;
+        line-height: 1.75;
+        position: absolute;
+      }
+      .interest-rate-icon::before {
+        height: 12px;
+        width: 12px;
+        bottom: -22px;
+        color: #151515;
+        content: "%";
+        font-size: 14px;
+
+        font-weight: normal;
+        right: 12px;
+        line-height: 1.75;
+        position: absolute;
+      }
+      .input-years-icon::before {
+        height: 12px;
+        width: 12px;
+        bottom: -22px;
+        color: #151515;
+        content: "years";
+        font-size: 14px;
+        color: #979797;
+        font-weight: normal;
+        right: 36px;
+        line-height: 1.75;
+        position: absolute;
+      }
+
+      .monthly-payment {
+        /* margin: 0px; */
+      }
+
+      .main-output .title {
+        margin-bottom: 14px;
+        font-size: 16px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .main-output .payment-1,
+      .main-output .payment-2 {
+        display: flex;
+        justify-content: center;
+      }
+      .payment-1,
+      .payment-2 {
+        margin-bottom: 32px;
+        color: #0157ff;
+      }
+      .payment-value {
+        font-size: 44px;
+        font-weight: 600;
+      }
+      .dollar-sign {
+        font-size: 22px;
+        font-weight: 600;
+        margin-right: 11px;
+      }
+
+      .interest-paid,
+      .principal-paid {
+        font-size: 16px;
+        display: flex;
+        justify-content: space-between;
+      }
+      .principal-paid,
+      .monthly-paid,
+      .difference-paid,
+      .total-paid {
+        padding-bottom: 8px;
+        margin-bottom: 8px;
+        /* border-bottom: 1px solid #000; */
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .recoup {
+        padding-bottom: 8px;
+        margin-bottom: 8px;
+        /* border-bottom: 1px s/olid #000; */
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .additional-information {
+        align-self: end;
+      }
+
+      #myChart {
+        height: 250px !important;
+        width: 250px !important;
+      }
+
+      .payment-value {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="top">
+        <h1 class="logo">Mortgage Refinance Calculator</h1>
+      </div>
+
+      <div class="calculator">
+        <div class="input">
+          <h2>Current Loan</h2>
+          <div class="input-description input-borrow-icon">
+            <div class="field-label">Loan amount</div>
+          </div>
+          <input type="text" class="input-borrow" value="250000" />
+          <div class="input-description">
+            <div class="field-label interest-rate-icon">Interest rate</div>
+          </div>
+          <input type="text" class="input-rate" value="3.25" />
+          <div class="input-description">
+            <div class="field-label input-years-icon">Loan term (years)</div>
+          </div>
+
+          <input type="text" class="input-years" value="30" />
+          <h2>New Loan</h2>
+          <div class="input-description input-borrow-icon">
+            <div class="field-label">Loan amount</div>
+          </div>
+          <input type="text" class="input-borrow-2" value="250000" />
+          <div class="input-description">
+            <div class="field-label interest-rate-icon">Interest rate</div>
+          </div>
+          <input type="text" class="input-rate-2" value="3.00" />
+
+          <div class="input-description">
+            <div class="field-label input-years-icon">Loan term (years)</div>
+          </div>
+
+          <input type="text" class="input-years-2" value="15" />
+        </div>
+        <div class="output">
+          <div class="main-output">
+            <div class="title">Current Monthly Payment</div>
+            <div class="payment-1">
+              <div class="dollar-sign">$</div>
+              <div class="payment-value">0.0</div>
+              <div class="additional-information">/month</div>
+            </div>
+          </div>
+          <div class="main-output">
+            <div class="title">New Monthly Payment</div>
+            <div class="payment-2">
+              <div class="dollar-sign">$</div>
+              <div class="payment-value">0.0</div>
+              <div class="additional-information">/month</div>
+            </div>
+          </div>
+          <div class="total-paid">
+            <div class="title">Total savings</div>
+            <div class="payment-total">$0.00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function calc() {
+        let loan1 = Number(
+          document
+            .querySelector(".input-borrow")
+            .value.toString()
+            .replaceAll(",", "")
+        );
+        let rate1 = document.querySelector(".input-rate").value / 12 / 100;
+        let time1 = document.querySelector(".input-years").value;
+        let loan2 = Number(
+          document
+            .querySelector(".input-borrow-2")
+            .value.toString()
+            .replaceAll(",", "")
+        );
+        let rate2 = document.querySelector(".input-rate-2").value / 12 / 100;
+        let time2 = document.querySelector(".input-years-2").value;
+
+        let payment1 =
+          Math.round(
+            (100 * (loan1 * rate1 * Math.pow(1 + rate1, time1 * 12))) /
+              (Math.pow(1 + rate1, time1 * 12) - 1)
+          ) / 100;
+        let payment2 =
+          Math.round(
+            (100 * (loan2 * rate2 * Math.pow(1 + rate2, time2 * 12))) /
+              (Math.pow(1 + rate2, time2 * 12) - 1)
+          ) / 100;
+        let paymentTotal =
+          Math.round(100 * (payment1 * 12 * time1 - payment2 * 12 * time2)) /
+          100;
+
+        document.querySelector(
+          ".payment-1 .payment-value"
+        ).innerHTML = `$${payment1
+          .toString()
+          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
+        document.querySelector(
+          ".payment-2 .payment-value"
+        ).innerHTML = `$${payment2
+          .toString()
+          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
+        document.querySelector(".payment-total").innerHTML = `$${paymentTotal
+          .toString()
+          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
+
+        document.querySelector(".input-borrow").value = `${loan1
+          .toString()
+          .replaceAll(",", "")
+          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
+        document.querySelector(".input-borrow-2").value = `${loan2
+          .toString()
+          .replaceAll(",", "")
+          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
+      }
+
+      document.querySelector(".input-borrow").addEventListener("input", calc);
+
+      document.querySelector(".input-years").addEventListener("input", calc);
+
+      document.querySelector(".input-rate").addEventListener("input", calc);
+      document.querySelector(".input-borrow-2").addEventListener("input", calc);
+
+      document.querySelector(".input-years-2").addEventListener("input", calc);
+
+      document.querySelector(".input-rate-2").addEventListener("input", calc);
+
+      calc();
+    </script>
+  </body>
+</html>

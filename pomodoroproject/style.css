@@ -39,8 +39,16 @@ button {
   border: 3px solid rgb(203, 142, 142);
   background-color: rgb(232, 223, 223);
   border-radius: 20px;
+  cursor: pointer;
 }
 
+button:hover {
+  background-color: rgb(239, 207, 207);
+}
+
+button:active {
+  background-color: rgb(247, 168, 168);
+}
 .line {
   width: 300px;
   height: 6px;

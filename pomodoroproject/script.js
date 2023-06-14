@@ -1,19 +1,26 @@
 var timerInterval;
 var minutes = 25;
+let maxMinutes = 25;
 var seconds = 0;
 var isPaused = true;
+let projectSelected = false;
+let projectSelectedName = "";
 
 function startTimer() {
   if (isPaused) {
     isPaused = false;
     timerInterval = setInterval(updateTimer, 1000);
+    let startButton = document.getElementById("startBtn");
+    startButton.innerHTML = "Start";
   }
 }
 
 function pauseTimer() {
   clearInterval(timerInterval);
   isPaused = true;
-  let pauseButton = document.getElementById("pauseBtn");
+  let startButton = document.getElementById("startBtn");
+  if (maxMinutes != minutes) startButton.innerHTML = "Continue";
+
   // if (pauseButton.innerHTML == "Pause") {
   //   pauseButton.innerHTML = "Unpause";
   // } else {
@@ -23,12 +30,13 @@ function pauseTimer() {
 
 function resetTimer() {
   clearInterval(timerInterval);
-  minutes = 25;
+  minutes = maxMinutes;
   seconds = 1;
   updateTimer();
   isPaused = true;
-  let pauseButton = document.getElementById("pauseBtn");
-  pauseButton.innerHTML = "Pause";
+
+  let startButton = document.getElementById("startBtn");
+  startButton.innerHTML = "Start";
 }
 
 function updateTimer() {
@@ -39,6 +47,14 @@ function updateTimer() {
     if (minutes === 0) {
       playSound();
       pauseTimer();
+      let completedList = document.getElementsByClassName("completedList")[0];
+      completedList.innerHTML += `<div class="completedLine">
+      <div class="completedLineInner">
+        <div class="completedText">Project worked on:</div>
+        <div class="projectName">${projectSelectedName}</div>
+        <div class="pomodoroNumber">(1 Pomodoro(s))</div>
+      </div>
+    </div>`;
       return;
     } else {
       minutes--;
@@ -48,8 +64,13 @@ function updateTimer() {
     seconds--;
   }
 
-  timerElement.innerHTML = formatTime(minutes) + ":" + formatTime(seconds);
-  innerLine.style.width = `${(100 * (minutes * 60 + seconds)) / (25 * 60)}%`;
+  timerElement.innerHTML = `<span id="minutes">${formatTime(
+    minutes
+  )}</span>:<span id="seconds">${formatTime(seconds)}</span>
+      <button id="changeTimeBtn" onclick="openModal()">Change Time</button>`;
+  innerLine.style.width = `${
+    (100 * (minutes * 60 + seconds)) / (maxMinutes * 60)
+  }%`;
 }
 
 function formatTime(time) {
@@ -61,4 +82,34 @@ function playSound() {
   // For example:
   // var audio = new Audio("path/to/sound/file.mp3");
   // audio.play();
+}
+
+function openModal() {
+  var modal = document.getElementById("modal");
+  modal.style.display = "block";
+}
+
+function closeModal() {
+  var modal = document.getElementById("modal");
+  modal.style.display = "none";
+}
+
+function updateTimerTwo() {
+  clearInterval(timerInterval);
+  let newMinutes = document.getElementById("newMinutes");
+  minutes = newMinutes.value;
+  seconds = 1;
+  maxMinutes = newMinutes.value;
+  updateTimer();
+  isPaused = true;
+}
+
+function selectProject() {
+  var selectedProjectPrompt = prompt("Enter the project name:");
+  if (selectedProjectPrompt !== null) {
+    var selectedProjectElement = document.getElementById("selectedProject");
+    selectedProjectElement.textContent = selectedProjectPrompt;
+    selectedProject = true;
+    projectSelectedName = selectedProjectPrompt;
+  }
 }

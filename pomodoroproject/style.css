@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: Roboto, "Helvetica Neue";
 }
 
 body {
@@ -58,7 +59,7 @@ button:active {
   margin: 0 auto;
   margin-top: 24px;
   border-radius: 100px;
-  background-color: rgb(203, 142, 142);
+  background-color: rgb(49, 49, 49);
 }
 
 .inner-line {
@@ -70,4 +71,105 @@ button:active {
   margin: 0 auto;
   border-radius: 100px;
   background-color: rgb(255, 255, 255);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 20% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 200px;
+}
+
+.close {
+  float: right;
+  cursor: pointer;
+  font-size: 20px;
+  background-color: rgba(189, 55, 55, 0.3);
+  border-radius: 20px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Additional styling for the input and button inside the modal */
+.modal-content input,
+.modal-content button {
+  margin-top: 10px;
+}
+
+#timer {
+  position: relative;
+}
+
+#changeTimeBtn {
+  position: absolute;
+  top: 260px;
+  width: 150px;
+  background-color: rgb(163, 99, 96);
+}
+
+.projects p {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.selProject {
+  display: inline;
+  width: 115px;
+  background-color: rgba(214, 79, 72, 0.47);
+  border-width: 1px;
+  border-color: rgb(235, 134, 134);
+  padding: 4px;
+  margin: 5px;
+}
+
+#selectedProject {
+  margin-left: 6px;
+}
+
+.completedList {
+  margin-top: 30px;
+}
+
+.completedLine {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* text-align: left; */
+  /* width: 500px; */
+  margin-bottom: 20px;
+}
+
+.completedText,
+.projectName,
+.pomodoroNumber {
+  display: inline;
+}
+
+.completedLineInner {
+  width: 400px;
+  text-align: left;
+  font-size: 15px;
+  color: rgb(69, 40, 40);
+}
+
+#buttons {
+  margin-bottom: 70px;
+  margin-top: 10px;
 }

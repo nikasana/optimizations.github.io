@@ -4,22 +4,60 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Pomodoro Timer</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <h1>Pomodoro Timer</h1>
     <div id="timer">
       <span id="minutes">25</span>:<span id="seconds">00</span>
+      <button id="changeTimeBtn" onclick="openModal()">Change Time</button>
     </div>
+
     <div class="line">
       <div class="inner-line"></div>
     </div>
+    <div class="projects">
+      <p>Project: <span id="selectedProject">no project selected</span></p>
+      <button class="selProject" onclick="selectProject()">
+        Select Project
+      </button>
+    </div>
+
     <div id="buttons">
       <button id="startBtn" onclick="startTimer()">Start</button>
       <button id="pauseBtn" onclick="pauseTimer()">Pause</button>
       <button id="resetBtn" onclick="resetTimer()">Reset</button>
     </div>
+
+    <div>Completed:</div>
+    <div class="completedList">
+      <div class="completedLine">
+        <div class="completedLineInner">
+          <div class="completedText">Project worked on:</div>
+          <div class="projectName">Productivity</div>
+          <div class="pomodoroNumber">(2 Pomodoro(s))</div>
+        </div>
+      </div>
+      <div class="completedLine">
+        <div class="completedLineInner">
+          <div class="completedText">Project worked on:</div>
+          <div class="projectName">Productivity</div>
+          <div class="pomodoroNumber">(2 Pomodoro(s))</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Set Timer</h2>
+        <input type="number" id="newMinutes" min="1" max="80" />
+        <button onclick="updateTimerTwo()">Set</button>
+      </div>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>

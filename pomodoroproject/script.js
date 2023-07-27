@@ -78,10 +78,13 @@ function formatTime(time) {
 }
 
 function playSound() {
-  // Add code to play a sound when the timer is up
-  // For example:
-  // var audio = new Audio("path/to/sound/file.mp3");
-  // audio.play();
+  var beepsound = new Audio("alarm.mp3");
+        beepsound.play();
+
+        setTimeout(function () {
+          beepsound.pause();
+          beepsound.currentTime = 0;
+        }, 3000);
 }
 
 function openModal() {
